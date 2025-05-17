@@ -1,55 +1,94 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  header, footer {
-    background: #eee;
-    padding: 1rem;
-    text-align: center;
-  }
+  font-family: sans-serif;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  color: white;
+}
 
-  .navbar__left {
-    display: flex;
-    width: 100%;
-    align-items: flex-start;
-  }
-  .navbar__logo {
-    width: 3vw;
-    height: 3vw;
-    margin: 1rem auto;
-    transition: all 0.4s;
-  }
-  .navbar__right {
-    display: flex;  
-    width: 100%;
-    align-items: flex-end;
-  }
-  nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 1rem;
-  }
-  .hero, .section, .testimonios, .galeria, .formulario {
-    padding: 2rem;
-    border-bottom: 1px solid #ccc;
-  }
-  .columnas {
-    display: flex;
-    gap: 2rem;
-  }
-  .columna {
-    flex: 1;
-  }
-  .formulario input, .formulario select, .formulario button {
-    display: block;
-    width: 100%;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-  }
+/* Navbar */
+.navbar-custom {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1030;
+  opacity: 0.9;
+}
+.nav-link, .btn-outline-light {
+  color: white !important;
+}
+.nav-link:hover, .btn-outline-light:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Espacio para que el nav fijo no tape contenido */
+main {
+  padding-top: 80px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: white;
+}
+
+
+/* Hero */
+.hero {
+  padding: 2rem;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.hero p {
+  max-width: 500px;
+  font-size: 1.2rem;
+}
+.hero h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 15rem;
+  margin-top: 0.5rem;
+  color: white;
+}
+
+/* Secciones */
+.section {
+  padding: 2rem;
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.columnas {
+  display: flex;
+  gap: 2rem;
+}
+.columna {
+  flex: 1;
+}
+/* Formulario */
+.formulario input, .formulario select, .formulario button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+.formulario button {
+  background-color: #00bcd4;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.formulario button:hover {
+  background-color: #0097a7;
+}
+
