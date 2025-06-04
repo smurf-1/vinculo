@@ -7,7 +7,11 @@
 body {
   font-family: sans-serif;
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  background-image: url(../img/fondo.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   color: white;
 }
 
@@ -34,9 +38,30 @@ main {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  color: white;
+  color: rgb(0, 0, 0);
+}
+/* Quienes somos  */
+.equipo-section {
+  background-color: white;
+  color: #333;
 }
 
+.equipo-section blockquote {
+  color: #58B3D2;
+  font-weight: 600;
+}
+
+.equipo-section h4 {
+  color: #58B3D2;
+}
+
+.equipo-section p {
+  line-height: 1.6;
+}
+
+.equipo-section small {
+  color: #666;
+}
 
 /* Hero */
 .hero {
@@ -68,6 +93,7 @@ h1, h2, h3, h4, h5, h6, p {
 .columnas {
   display: flex;
   gap: 2rem;
+  flex-direction: column;
 }
 .columna {
   flex: 1;
