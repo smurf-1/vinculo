@@ -18,3 +18,19 @@ console.log('hola mundo')
       track.style.transform = `translateX(${-(offset / 4)}px)`;
     }
   });
+    let lastScrollTop = 0;
+  const navbar = document.getElementById('navbar-custom');
+
+  window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // scroll hacia abajo
+      navbar.classList.add('hide');
+    } else {
+      // scroll hacia arriba
+      navbar.classList.remove('hide');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  })
