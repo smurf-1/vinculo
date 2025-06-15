@@ -28,8 +28,8 @@ body {
   left: 0;
   z-index: 1000;
   transition: transform 0.3s ease;
-
 }
+
 .navbar-custom.hide {
   transform: translateY(-100%);
 }
@@ -135,18 +135,22 @@ h1, h2, h3, h4, h5, h6, p {
     .intro-section .imagen1,
     .intro-section .imagen2 {
       position: absolute;
-      width: 45%;
+      
     }
 
     .imagen1 {
-      left: 2rem;
-      top: 1rem;
+      width: 30%;
+      height: 40%;
+      left: 5rem;
+      top: 10rem;
       z-index: 2;
     }
 
     .imagen2 {
-      left: 5rem;
-      top: 3rem;
+       width: 30%;
+      height: 40%;
+      left: 12rem;
+      top: 17rem;
       z-index: 1;
       opacity: 0.8; /* para distinguir visualmente en la superposición */
     }
@@ -188,6 +192,7 @@ h1, h2, h3, h4, h5, h6, p {
     text-align: center;
     background-color: #fff;
   }
+
 /*artuculos importantes*/
 #servicios-section{
 display: flex;
@@ -297,7 +302,6 @@ justify-content: center;
       transition: transform 0.3s ease-out;
       will-change: transform;
     }
-  
     .fila {
       display: flex;
       justify-content: center;
@@ -325,7 +329,8 @@ justify-content: center;
       padding: 2rem;
       gap: 5rem;
       background-color: #fff;
-      height: 38rem;
+      height: 28rem;
+      
     }
 
     /* Contenedor para controlar superposición */
