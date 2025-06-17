@@ -53,6 +53,12 @@ main {
 
 h1, h2, h3, h4, h5, h6, p {
   color: rgb(0, 0, 0);
+  font-family: 'League Spartan', sans-serif;
+}
+h4, h5, h6, p {
+  color: #555;
+  font-family: "Open Sans", sans-serif;
+
 }
 /* Hero */
 .hero {
@@ -138,7 +144,7 @@ h1, h2, h3, h4, h5, h6, p {
       
     }
 
-    .imagen1 {
+    .intro-section .imagen1 {
       width: 30%;
       height: 40%;
       left: 5rem;
@@ -146,7 +152,7 @@ h1, h2, h3, h4, h5, h6, p {
       z-index: 2;
     }
 
-    .imagen2 {
+    .intro-section .imagen2 {
        width: 30%;
       height: 40%;
       left: 12rem;
@@ -215,14 +221,6 @@ justify-content: center;
       object-fit: cover;
       flex-shrink: 0;
     }
-
-    .c-content {
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
     .articulo1 h3 {
       color: #333;
       font-size: 1.2rem;
@@ -322,45 +320,62 @@ justify-content: center;
   }
 }
 .redes {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      gap: 5rem;
-      background-color: #fff;
-      height: 28rem;
-      
-    }
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  background-color: #fff;
+  padding: 4rem 2rem;
+  height: auto;
+  flex-wrap: wrap;
+}
 
-    /* Contenedor para controlar superposición */
-    .redes .imagen1,
-    .redes .imagen2 {
-      position: absolute;
-      width: 20%;
-    }
+.bloque-izquierdo {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
 
-    .imagen1 {
-      left: 2rem;
-      top: 1rem;
-      z-index: 2;
-    }
+.bloque-izquierdo .imagen1,
+.bloque-izquierdo .imagen2 {
+  position: absolute;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
 
-    .imagen2 {
-      left: 5rem;
-      top: 3rem;
-      z-index: 1;
-      opacity: 0.8; /* para distinguir visualmente en la superposición */
-    }
+}
 
-  .pie{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #fff;
-  }
+.imagen1 {
+  top: 0rem;
+  left:-5rem;
+  z-index: 2;
+}
+.imagen2 {
+  top: 5rem;
+  left: 0rem;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.bloque-derecho {
+  width: auto;
+  max-width: 250px;
+}
+
+.imagen3 {
+  width: 100%;
+  height: auto;
+
+}
+
+.pie {
+  text-align: center;
+  padding: 10rem 2rem 0rem;
+  background-color: #fff;
+  font-size: 1.2rem;
+}
+
 /* BLOG */
 #blog-section {
   padding: 3rem 2rem;
