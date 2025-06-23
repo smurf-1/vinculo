@@ -89,6 +89,31 @@ h4, h5, h6, p {
   margin-top: 0.5rem;
   color: white;
 }
+
+@media (max-width: 768px) {
+    .hero h2,
+    .data-section h2 {
+        font-size: 4rem; /* Un tamaño más apropiado para móviles, ajusta según necesites */
+        word-break: break-word; /* Asegura que palabras largas se rompan si es necesario */
+        text-align: center; /* Centra el texto para mejor visualización */
+    }
+
+    /* Opcional: ajustar el padding o margen de la sección hero para el contenido */
+    .hero {
+        padding: 1rem; /* Añade un poco de espacio alrededor del contenido */
+        justify-content: end; /* Centra el contenido verticalmente si es necesario */
+        text-align: center;
+    }
+}
+
+/* Para pantallas entre 768px y 1200px (tablets y laptops pequeñas) */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .hero h2,
+    .data-section h2 {
+        font-size: 8rem; /* Un tamaño intermedio */
+    }
+}
+
 /* Quienes somos  */
 #equipo-section {
   background-color: white;
@@ -554,7 +579,7 @@ justify-content: center;
     min-height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: space-evenly;
     gap: 70px;
     background-image: url(../img/fondo.jpg);
     background-repeat: no-repeat;
