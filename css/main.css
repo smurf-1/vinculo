@@ -4,17 +4,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  font-family: sans-serif;
-  height: 100vh;
-  background-image: url(../img/fondo.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  color: white;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
-
 /* Navbar */
 .navbar-custom {
   background-color: rgba(255, 255, 255, 0.5);
@@ -46,11 +41,6 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Espacio para que el nav fijo no tape contenido */
-main {
-  padding-top: 80px;
-}
-
 h1, h2, h3, h4, h5, h6, p {
   color: rgb(0, 0, 0);
   font-family: 'League Spartan', sans-serif;
@@ -60,14 +50,31 @@ h4, h5, h6, p {
   font-family: "Open Sans", sans-serif;
 
 }
+
 /* Hero */
+
 .hero {
-  padding: 2rem;
-  height: 90vh;
+  position: relative;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: end;
+  overflow: hidden;
 }
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/fondo.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+ }
 .hero p {
   max-width: 500px;
   font-size: 1.2rem;
@@ -127,69 +134,95 @@ h4, h5, h6, p {
 }
 /*seccion de introduccion*/
     .intro-section {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 2rem;
-      gap: 1rem;
-      background-color: #fff;
-      height: 38rem;
-    }
+  padding: 2rem 1rem;
+  background-color: #fff;
+}
 
-    /* Contenedor para controlar superposición */
-    .intro-section .imagen1,
-    .intro-section .imagen2 {
-      position: absolute;
-      
-    }
+.intro-image {
+  position: relative;
+  min-height: 400px; /* necesario para contener las imágenes absolutas */
+  margin-bottom: 2rem;
+}
 
-    .intro-section .imagen1 {
-      width: 30%;
-      height: 40%;
-      left: 5rem;
-      top: 10rem;
-      z-index: 2;
-    }
+.intro-image .imagen1,
+.intro-image .imagen2 {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  transition: all 0.3s ease;
+}
 
-    .intro-section .imagen2 {
-       width: 30%;
-      height: 40%;
-      left: 12rem;
-      top: 17rem;
-      z-index: 1;
-      opacity: 0.8; /* para distinguir visualmente en la superposición */
-    }
+.intro-image .imagen1 {
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  z-index: 2;
+}
 
-    .intro-text {
-      position: relative;
-      margin-left: 50%;
-      z-index: 3;
-      background-color: white;
-      padding: 1rem;
-    }
+.intro-image .imagen2 {
+  height: 80%;
+  left: 20%;
+  top: 25%;
+  z-index: 1;
+  opacity: 0.8;
+}
 
-    .intro-text h2 {
-      color: #58B3D2;
-      font-size: 2rem;
-      margin-bottom: 0.3rem;
-      text-align: left;
-    }
+/* Estilo del texto */
+.intro-text {
+  padding: 1rem;
+  background-color: white;
+  z-index: 3;
+}
 
-    .intro-text h3 {
-      color: #777;
-      font-weight: normal;
-      margin-bottom: 1rem;
-      text-align: left;
-      font-size: 1.5rem;
-    }
+.intro-text h2 {
+  color: #58B3D2;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
 
-    .intro-text p {
-      max-width: 600px;
-      color: #333;
-      text-align: left;
-      margin: 30px 0px 0px 0px;
-    }
+.intro-text h3 {
+  color: #777;
+  font-weight: normal;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.intro-text p {
+  max-width: 600px;
+  color: #333;
+  text-align: left;
+  margin: 30px 0px 0px 0px;
+}
+
+/* Responsivo */
+@media (max-width: 767.98px) {
+  .intro-image {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .intro-image .imagen1,
+  .intro-image .imagen2 {
+    width: 80%;
+    left: 10%;
+    top: auto;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .intro-image .imagen1 {
+    z-index: 2;
+  }
+
+  .intro-image .imagen2 {
+    z-index: 1;
+    margin-top: -3rem;
+  }
+}
+
   .pie{
     display: flex;
     flex-direction: row;
@@ -290,7 +323,6 @@ justify-content: center;
       padding: 5rem 2rem;
       overflow: hidden;
       position: relative;
-      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -522,7 +554,11 @@ justify-content: center;
     flex-direction: column;
     justify-content: end;
     gap: 70px;
-   
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
   }
 
   .data-section p {
