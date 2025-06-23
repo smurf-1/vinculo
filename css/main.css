@@ -62,6 +62,7 @@ h4, h5, h6, p {
   justify-content: end;
   overflow: hidden;
   height: calc(100vh - 80px); /* Resta la altura del nav */
+  padding: 2rem;
 
 }
 .hero::before {
@@ -430,7 +431,7 @@ justify-content: center;
 
 .pie {
   text-align: center;
-  padding: 10rem 2rem 0rem;
+  padding: 2rem ;
   background-color: #fff;
   font-size: 1.2rem;
 }
@@ -442,9 +443,10 @@ justify-content: center;
 }
 
 .blog-title {
-  font-size: 3rem;
+  font-size: 13rem;
   text-align: center;
   margin-bottom: 2rem;
+  color: #58B3D2;
 }
 
 .blog-grid {
@@ -573,8 +575,18 @@ justify-content: center;
     grid-template-columns: 1fr;
   }
 }
+.testimonios-section{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  height: 60vh;
+}
 /* foother */
-.data-section {
+#data-section {
     padding: 2rem;
     min-height: 90vh;
     display: flex;
@@ -588,13 +600,13 @@ justify-content: center;
     background-attachment: fixed;
   }
 
-  .data-section p {
+  #data-section p {
     max-width: 500px;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     color: #fff;
   }
 
-  .data-section h2 {
+  #data-section h2 {
     font-family: 'League Spartan', sans-serif;
     font-weight: 700;
     font-size: 15rem;
