@@ -324,7 +324,38 @@ justify-content: center;
         height: 180px;
       }
     }
-    
+  .btn-ver-mas {
+      text-decoration: none;   
+  background: none;
+  border: none;
+  color: #58B3D2; 
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-ver-mas .arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Hover: sombra y movimiento de la flecha */
+.shadow-effect:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-ver-mas:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Click: efecto animado tipo "tap" */
+.btn-ver-mas:active {
+  transform: scale(0.95);
+}
     /*comunidad */ 
     .comunidad-section {
       display: flex;
