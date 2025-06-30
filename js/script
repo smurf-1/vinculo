@@ -26,50 +26,61 @@ const handleScroll = () => {
     });
   }
 };
-
-window.addEventListener("scroll", handleScroll);
-
-// Navbar que se esconde al hacer scroll hacia abajo
 const navbar = document.querySelector(".navbar-custom");
 let lastScrollTop = 0;
 let isScrolling;
+let scrollTimeout;
 
 const handleNavScroll = () => {
-  clearTimeout(isScrolling);
-  
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  if (scrollTop > lastScrollTop && scrollTop > 100) {
-    // Scroll hacia abajo
-    navbar.classList.add("hide");
-  } else {
-    // Scroll hacia arriba
-    navbar.classList.remove("hide");
-  }
-  
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  
 
+  // Detecta dirección del scroll
+  if (scrollTop > lastScrollTop && scrollTop > 100) {
+    navbar.classList.add("hide"); // ocultar si bajando
+  } else {
+    navbar.classList.remove("hide"); // mostrar si subiendo
+  }
+
+  // Mostrar de nuevo si deja de hacer scroll (tras 150ms)
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    navbar.classList.remove("hide");
+  }, 150);
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 };
 
+// Agregar eventos
 if (navbar) {
   window.addEventListener("scroll", handleNavScroll);
-}
 
-// Añadir clase al navbar cuando se hace scroll
-window.addEventListener("scroll", () => {
-  if (navbar) {
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       navbar.classList.add("scrolled");
     } else {
       navbar.classList.remove("scrolled");
     }
-  }
+  });
+
+  // Limpieza si es una SPA
+  window.addEventListener("beforeunload", () => {
+    window.removeEventListener("scroll", handleNavScroll);
+    clearTimeout(scrollTimeout);
+  });
+}
+
+//animacion de items
+const elementos = document.querySelectorAll('.scroll-item');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.3 // Porcentaje de visibilidad antes de activar
 });
 
-// Limpieza de event listeners al desmontar (si es una SPA)
-window.addEventListener("beforeunload", () => {
-  window.removeEventListener("scroll", handleScroll);
-  window.removeEventListener("scroll", handleNavScroll);
-  if (gallery) galleryObserver.disconnect();
-});
+// Aplicar el observer a cada elemento
+elementos.forEach(el => observer.observe(el));
