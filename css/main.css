@@ -171,7 +171,40 @@ h4, h5, h6, p {
 .mision p {
   font-size: 15px;
 }
+.btn-nosotros {
+  text-decoration: none;   
+  background: none;
+  border: none;
+  color: #58B3D2; 
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  justify-content: center;
+  margin: 0px 0px 10px 0px;
+}
 
+.btn-nosotros .arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Hover: sombra y movimiento de la flecha */
+.shadow-effect:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-nosotros:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Click: efecto animado tipo "tap" */
+.btn-nostros:active {
+  transform: scale(0.95);
+}
 /* Línea encima y distribución entre izquierda y derecha */
 .creditos {
   display: flex;
@@ -383,6 +416,7 @@ justify-content: center;
 .btn-ver-mas:active {
   transform: scale(0.95);
 }
+
     /*comunidad */ 
     .comunidad-section {
       display: flex;
