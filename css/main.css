@@ -9,6 +9,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
+
 }
 /* Navbar */
 .navbar-custom {
@@ -164,10 +165,6 @@ h4, h5, h6, p {
   margin: 0px 20px 0px 0px
 }
 /*tercer columna mision*/
-.mision {
-  margin: 30px;
-}
-
 .mision p {
   font-size: 15px;
 }
@@ -437,46 +434,47 @@ justify-content: center;
       margin: 0 auto;
       color: #555;
     }
-    /*galeria*/
-    .scroll-gallery {
-      background: white;
-      padding: 5rem 2rem;
-      overflow: hidden;
+    /*GALERIA*/
+.horizontal-scroll-section {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 100vh;
+      background: white;
     }
-    
-    .gallery-track {
-      transition: transform 0.3s ease-out;
-      will-change: transform;
+
+    .scroll-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flow-root;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+    margin-top: 100px;
+    width: max-content;
+
+
     }
-    .fila {
+
+    .fila, .fila2 {
       display: flex;
-      justify-content: center;
       gap: 2rem;
-      margin-bottom: 2rem;
     }
+
     .fila2 {
-      display: flex;
-      justify-content: center;
-      gap: 4rem;
-      margin-bottom: 4rem;
+      margin-left: 150px;
+      transform: translateY(30px);
     }
-    
-    .gallery-track img {
-      height: 200px;
-      width: 300px;
-      border-radius: 16px;
+
+    .scroll-container img {
+      width: 500px;
+      max-width: 100%;
+      height: 300px;
       object-fit: cover;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
     }
-    @media (max-width: 768px) {
-  .gallery-track {
-    transform: none !important;
-  }
-}
+
 .redes {
   position: relative;
   display: flex;
@@ -489,43 +487,63 @@ justify-content: center;
   height: 624px;
 }
 
-.bloque-izquierdo {
-  position: relative;
-  width: 300px;
-  height: 300px;
-}
-
-.bloque-izquierdo .imagen1,
-.bloque-izquierdo .imagen2 {
-  position: absolute;
-  width: 100%;
-  max-width: 220px;
-  height: auto;
-
-}
-
-.imagen1 {
-  top: 0rem;
-  left:-5rem;
-  z-index: 2;
-}
-.imagen2 {
-  top: 5rem;
-  left: 0rem;
-  z-index: 1;
-  opacity: 0.9;
-}
-
 .bloque-derecho {
-  width: auto;
-  max-width: 250px;
-}
+      width: auto;
+      max-width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      margin: 0 auto 4rem auto;
+    }
 
-.imagen3 {
-  width: 100%;
-  height: auto;
+    .phone-mockup {
+      width: 360px;
+      height: 435px;
+      border: 9px solid #333;
+      border-radius: 32px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      background: black;
+      overflow: hidden;
+      position: relative;
+    }
 
-}
+    .tiktok-video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .bloque-izquierdo {
+      position: relative;
+      width: 600px;
+      height: 300px;
+    }
+
+    .bloque-izquierdo .imagen1,
+    .bloque-izquierdo .imagen2 {
+      position: absolute;
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+    }
+
+    .imagen1 {
+      top: 0rem;
+      left: 16rem;
+      z-index: 2;
+    }
+
+    .imagen2 {
+      top: 8rem;
+      left: 22rem;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    .imagen3 {
+      width: 100%;
+      height: auto;
+    }
 
 .pie {
   text-align: center;

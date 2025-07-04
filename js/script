@@ -1,47 +1,61 @@
-// Galería con efecto de scroll horizontal
-const gallery = document.querySelector(".scroll-gallery");
-const track = document.querySelector(".gallery-track");
-let isInView = false;
+// -------------------- GALERÍA HORIZONTAL --------------------
+const section = document.querySelector('.horizontal-scroll-section');
+    const containerWrapper = document.querySelector('.scroll-container-wrapper');
+    const container = document.querySelector('.scroll-container');
 
-const galleryObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      isInView = entry.isIntersecting;
+    let scrollLength;
+    let containerWidth;
+
+    const setScrollLength = () => {
+      containerWidth = container.scrollWidth;
+      scrollLength = containerWidth - window.innerWidth;
+      section.style.height = containerWidth + 'px';
+    };
+
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset - section.offsetTop;
+      const progress = Math.min(scrollTop / scrollLength, 1);
+      const translateX = -progress * scrollLength;
+      container.style.transform = `translateX(${translateX}px)`;
+    };
+
+    window.addEventListener('load', () => {
+      setScrollLength();
+      handleScroll();
     });
-  },
-  { threshold: 0.1 }
-);
 
-if (gallery) {
-  galleryObserver.observe(gallery);
-}
+    window.addEventListener('resize', setScrollLength);
+    window.addEventListener('scroll', handleScroll);
 
-let animationId;
-const handleScroll = () => {
-  if (isInView && gallery && track) {
-    cancelAnimationFrame(animationId);
-    animationId = requestAnimationFrame(() => {
-      const offset = Math.max(0, window.scrollY - gallery.offsetTop);
-      track.style.transform = `translateX(${-offset / 4}px)`;
-    });
-  }
-};
+// -------------------- ANIMACIÓN DE ITEMS --------------------
+const elementos = document.querySelectorAll('.scroll-item');
+
+const scrollItemObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+elementos.forEach(el => scrollItemObserver.observe(el));
+
+// -------------------- NAVBAR --------------------
 const navbar = document.querySelector(".navbar-custom");
 let lastScrollTop = 0;
-let isScrolling;
 let scrollTimeout;
 
 const handleNavScroll = () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-  // Detecta dirección del scroll
   if (scrollTop > lastScrollTop && scrollTop > 100) {
-    navbar.classList.add("hide"); // ocultar si bajando
+    navbar.classList.add("hide");
   } else {
-    navbar.classList.remove("hide"); // mostrar si subiendo
+    navbar.classList.remove("hide");
   }
 
-  // Mostrar de nuevo si deja de hacer scroll (tras 150ms)
   clearTimeout(scrollTimeout);
   scrollTimeout = setTimeout(() => {
     navbar.classList.remove("hide");
@@ -50,7 +64,6 @@ const handleNavScroll = () => {
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 };
 
-// Agregar eventos
 if (navbar) {
   window.addEventListener("scroll", handleNavScroll);
 
@@ -62,25 +75,15 @@ if (navbar) {
     }
   });
 
-  // Limpieza si es una SPA
   window.addEventListener("beforeunload", () => {
     window.removeEventListener("scroll", handleNavScroll);
     clearTimeout(scrollTimeout);
   });
 }
-
-//animacion de items
-const elementos = document.querySelectorAll('.scroll-item');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, {
-  threshold: 0.3 // Porcentaje de visibilidad antes de activar
-});
-
-// Aplicar el observer a cada elemento
-elementos.forEach(el => observer.observe(el));
+// -------------------- TIKTOK --------------------
+ window.addEventListener('DOMContentLoaded', () => {
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://www.tiktok.com/embed.js');
+    script.setAttribute('async', true);
+    document.body.appendChild(script);
+  })
